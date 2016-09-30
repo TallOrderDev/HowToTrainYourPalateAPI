@@ -1,3 +1,5 @@
 class TriedBeerType < ApplicationRecord
-  belongs_to :beer_type, foreign_key: :beer_type_id
+  validates :beer_type_id, :user_id, :rating, presence: true
+  belongs_to :beer_type
+  has_many :beer_tagged_types
 end
