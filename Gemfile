@@ -5,13 +5,18 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 
 
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5'
+end
+
+
 gem 'spring', :group => :development
 gem 'listen', :group => :development
 
 gem 'pg'
 gem 'pry-rails'
 
-
+gem 'coveralls', require: false
 # To use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
