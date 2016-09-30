@@ -6,4 +6,13 @@ class User < ActiveRecord::Base
           :recoverable, :rememberable, :trackable, :validatable,
           :confirmable, :omniauthable
   include DeviseTokenAuth::Concerns::User
+
+  def recommend_liked
+    #This will recomend a type the user enjoys.
+  end
+
+  def recommend_new
+    # Code goes here to recommend this users a new untried beer
+  end
+
 end
