@@ -5,6 +5,11 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 
 
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5'
+end
+
+
 gem 'spring', :group => :development
 gem 'listen', :group => :development
 
