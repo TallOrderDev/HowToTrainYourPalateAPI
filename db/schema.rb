@@ -15,25 +15,26 @@ ActiveRecord::Schema.define(version: 20160930041016) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "beer_tagged_types", force: :cascade do |t|
+    t.integer  "tried_beer_type_id"
+    t.integer  "beer_type_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  create_table "beer_type_to_subtypes", force: :cascade do |t|
+    t.integer  "beer_type_id"
+    t.integer  "beer_subtype_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "beer_types", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.string   "image"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "subtypes", force: :cascade do |t|
-    t.string   "beer_type_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  create_table "tagged_types", force: :cascade do |t|
-    t.integer  "tried_beer_type_id"
-    t.integer  "beer_type_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
   end
 
   create_table "tried_beer_types", force: :cascade do |t|
