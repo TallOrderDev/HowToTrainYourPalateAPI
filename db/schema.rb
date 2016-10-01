@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 20161001004851) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "beer_tagged_types", force: :cascade do |t|
+    t.integer  "tried_beer_type_id"
+    t.integer  "beer_type_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
   create_table "beer_type_to_subtypes", force: :cascade do |t|
     t.integer  "beer_type_id"
     t.integer  "beer_subtype_id"
