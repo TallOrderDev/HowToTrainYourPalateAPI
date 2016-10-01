@@ -1,0 +1,68 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/apprentice/final_project/HowToTrainYourPalateAPI/app/models/user.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/apprentice/final_project/HowToTrainYourPalateAPI/app/models/beer_type.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/apprentice/final_project/HowToTrainYourPalateAPI/app/models/application_record.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/apprentice/final_project/HowToTrainYourPalateAPI/app/controllers/application_controller.rb": [
+        0,
+        0,
+        0
+      ],
+      "/Users/apprentice/final_project/HowToTrainYourPalateAPI/app/models/beer_tagged_type.rb": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/apprentice/final_project/HowToTrainYourPalateAPI/app/models/beer_type_to_subtype.rb": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/apprentice/final_project/HowToTrainYourPalateAPI/app/models/tried_beer_type.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "timestamp": 1475280828
+  }
+}
