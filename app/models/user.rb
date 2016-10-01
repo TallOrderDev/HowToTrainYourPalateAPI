@@ -9,12 +9,33 @@ class User < ActiveRecord::Base
           :confirmable, :omniauthable
   include DeviseTokenAuth::Concerns::User
 
-  def recommend_liked
-    #This will recomend a type the user enjoys.
+  def recommend_liked_beer
+    #This will recommend a type the user enjoys.
   end
 
-  def recommend_new
+  def recommend_new_beer
     # Code goes here to recommend this users a new untried beer
   end
+
+  def collect_user_flavors(flavors)
+    # Take clicked flavors and create UserFlavor table entries
+  end
+
+  def wheele_data_user_data
+    # Take general data for wheel as well as user data and return for wheel
+  end
+
+  def return_sub_types(type)
+    # Take a type from the user and return a
+
+  end
+
+  def taged_types_and_rating_them_return(tagged_types)
+    # Take the types the user tagged and save them to the DB
+    # Get the descriptions for the tagged types and return them.
+  end
+
+
+
 
 end
