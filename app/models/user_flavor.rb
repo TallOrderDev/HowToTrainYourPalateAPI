@@ -1,0 +1,2 @@
+class UserFlavor < ApplicationRecord
+end
