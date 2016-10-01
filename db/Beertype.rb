@@ -147,86 +147,6 @@ def create_flavors
 end
 
 def create_beer_flavors
-  Beerflavor.create(beer_type_id: 1, flavor_id: 3)
-  Beerflavor.create(beer_type_id: 1, flavor_id: 4)
-
-  Beerflavor.create(beer_type_id: 2, flavor_id: 4)
-  Beerflavor.create(beer_type_id: 2, flavor_id: 6)
-
-  Beerflavor.create(beer_type_id: 3, flavor_id: 4)
-  Beerflavor.create(beer_type_id: 3, flavor_id: 6)
-
-  Beerflavor.create(beer_type_id: 4, flavor_id: 2)
-  Beerflavor.create(beer_type_id: 4, flavor_id: 6)
-  Beerflavor.create(beer_type_id: 4, flavor_id: 7)
-
-
-  Beerflavor.create(beer_type_id: 5, flavor_id: 2)
-  Beerflavor.create(beer_type_id: 5, flavor_id: 3)
-  Beerflavor.create(beer_type_id: 5, flavor_id: 4)
-  Beerflavor.create(beer_type_id: 5, flavor_id: 6)
-  Beerflavor.create(beer_type_id: 5, flavor_id: 7)
-
-
-  Beerflavor.create(beer_type_id: 6, flavor_id: 6)
-  Beerflavor.create(beer_type_id: 6, flavor_id: 8)
-
-  Beerflavor.create(beer_type_id: 7, flavor_id: 1)
-  Beerflavor.create(beer_type_id: 7, flavor_id: 3)
-
-
-  Beerflavor.create(beer_type_id: 8, flavor_id: 1)
-  Beerflavor.create(beer_type_id: 8, flavor_id: 3)
-  Beerflavor.create(beer_type_id: 8, flavor_id: 6)
-  Beerflavor.create(beer_type_id: 8, flavor_id: 7)
-
-
-  Beerflavor.create(beer_type_id: 9, flavor_id: 1)
-  Beerflavor.create(beer_type_id: 9, flavor_id: 2)
-  Beerflavor.create(beer_type_id: 9, flavor_id: 3)
-  Beerflavor.create(beer_type_id: 9, flavor_id: 6)
-  Beerflavor.create(beer_type_id: 9, flavor_id: 7)
-
-
-  Beerflavor.create(beer_type_id: 10, flavor_id: 3)
-  Beerflavor.create(beer_type_id: 10, flavor_id: 4)
-  Beerflavor.create(beer_type_id: 10, flavor_id: 5)
-  Beerflavor.create(beer_type_id: 10, flavor_id: 6)
-  Beerflavor.create(beer_type_id: 10, flavor_id: 7)
-
-
-  Beerflavor.create(beer_type_id: 11, flavor_id: 1)
-  Beerflavor.create(beer_type_id: 11, flavor_id: 2)
-  Beerflavor.create(beer_type_id: 11, flavor_id: 5)
-
-
-  Beerflavor.create(beer_type_id: 12, flavor_id: 1)
-  Beerflavor.create(beer_type_id: 12, flavor_id: 2)
-  Beerflavor.create(beer_type_id: 12, flavor_id: 3)
-
-
-  Beerflavor.create(beer_type_id: 13, flavor_id: 1)
-  Beerflavor.create(beer_type_id: 13, flavor_id: 2)
-  Beerflavor.create(beer_type_id: 13, flavor_id: 4)
-
-
-  Beerflavor.create(beer_type_id: 14, flavor_id: 3)
-  Beerflavor.create(beer_type_id: 14, flavor_id: 4)
-
-
-  Beerflavor.create(beer_type_id: 15, flavor_id: 3)
-  Beerflavor.create(beer_type_id: 15, flavor_id: 4)
-  Beerflavor.create(beer_type_id: 15, flavor_id: 2)
-
-
-  Beerflavor.create(beer_type_id: 16, flavor_id: 2)
-  Beerflavor.create(beer_type_id: 16, flavor_id: 4)
-  Beerflavor.create(beer_type_id: 16, flavor_id: 6)
-  Beerflavor.create(beer_type_id: 16, flavor_id: 7)
-
-
-  Beerflavor.create(beer_type_id: 17, flavor_id: 3)
-  Beerflavor.create(beer_type_id: 17, flavor_id: 4)
   Beerflavor.create(beer_type_id: , flavor_id: )
   Beerflavor.create(beer_type_id: , flavor_id: )
   Beerflavor.create(beer_type_id: , flavor_id: )
@@ -237,7 +157,20 @@ def create_beer_flavors
   Beerflavor.create(beer_type_id: , flavor_id: )
   Beerflavor.create(beer_type_id: , flavor_id: )
   Beerflavor.create(beer_type_id: , flavor_id: )
-
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
 end
 
 create_beer_types
