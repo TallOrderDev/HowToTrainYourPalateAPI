@@ -360,8 +360,15 @@ def create_beer_flavors
 
 end
 
+def create_user_flavors
+  UserFlavor.create(user_id: 1, flavor_id: 1)
+  UserFlavor.create(user_id: 1, flavor_id: 2)
+  UserFlavor.create(user_id: 1, flavor_id: 3)
+  UserFlavor.create(user_id: 1, flavor_id: 5)
+end
+
 def create_fake_user
-  user = User.new(email: "a@a.com", password: "qwerty", password_confirmation: "qwerty")
+  user = User.new(email: "a@a.com", password: "74107410", password_confirmation: "74107410")
   user.skip_confirmation!
   user.save
 end
@@ -371,3 +378,4 @@ create_beer_type_to_subtype
 create_flavors
 create_beer_flavors
 create_fake_user
+create_user_flavors
