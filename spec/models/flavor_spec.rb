@@ -1,5 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe Flavor, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Flavor do
+  let(:flavor) { Flavor.new(flavor: "bitter") }
+  context "A flavor has attributes" do
+    it "has a flavor" do
+      expect(flavor.flavor).to eq "bitter"
+    end
+  end
 end
