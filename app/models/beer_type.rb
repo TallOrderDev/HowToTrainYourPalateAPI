@@ -4,4 +4,6 @@ class BeerType < ApplicationRecord
   has_many :beer_tagged_types
   has_many :beer_type_to_subtypes
   has_many :beer_subtypes, through: :beer_type_to_subtypes
+  has_many :beer_flavors
+  has_many :flavors, through: :beer_flavors
 end

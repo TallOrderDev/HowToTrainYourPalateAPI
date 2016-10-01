@@ -127,12 +127,52 @@ def create_beer_type_to_subtype
 
 end
 
+def create_flavors
+  #1
+  Flavor.create(flavor: "Crisp")
+  #2
+  Flavor.create(flavor: "Hop")
+  #3
+  Flavor.create(flavor: "Malt")
+  #4
+  Flavor.create(flavor: "Roast")
+  #5
+  Flavor.create(flavor: "Smoke")
+  #6
+  Flavor.create(flavor: "Fruit")
+  #7
+  Flavor.create(flavor: "Spice")
+  #8
+  Flavor.create(flavor: "Tart")
+end
 
+def create_beer_flavors
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+  Beerflavor.create(beer_type_id: , flavor_id: )
+end
 
-
-
-
-
-BeerTaggedType.create(tried_beer_type_id: 1, beer_type_id: 1)
-TriedBeerType.create(beer_type_id: 1, user_id: 1, rating: 1)
-BeerTypeToSubtype.create(beer_type_id: 1, beer_subtype_id: 1)
+create_beer_types
+create_beer_type_to_subtype
+create_flavors
