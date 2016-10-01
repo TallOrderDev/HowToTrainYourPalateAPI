@@ -17,8 +17,14 @@ class User < ActiveRecord::Base
     # Code goes here to recommend this users a new untried beer
   end
 
-  def collect_user_flavors(flavors)
+  def collect_user_flavors(flavor_ids)
+    user = User.first
+    flavor_ids = [2, 3, 5, 6, 7]
     # Take clicked flavors and create UserFlavor table entries
+    flavor_ids.each do |f_id|
+      flavor = Flavor.find(f_id)
+      UserFlavor.create(flavor: flavor, user: user)
+    end
   end
 
   def wheele_data_user_data
@@ -34,8 +40,6 @@ class User < ActiveRecord::Base
     # Take the types the user tagged and save them to the DB
     # Get the descriptions for the tagged types and return them.
   end
-
-
 
 
 end

@@ -1,5 +1,5 @@
 class BeerType < ApplicationRecord
-  validates :name, :description, :image, presence: true
+  validates :name, :image, presence: true
   has_many :tried_beer_types
   has_many :beer_tagged_types
   has_many :beer_type_to_subtypes
