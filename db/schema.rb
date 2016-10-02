@@ -33,9 +33,10 @@ ActiveRecord::Schema.define(version: 20161001004851) do
     t.string   "name"
     t.string   "beg_description"
     t.string   "adv_description"
+    t.integer  "main_type",       default: 0
     t.string   "image"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "flavors", force: :cascade do |t|

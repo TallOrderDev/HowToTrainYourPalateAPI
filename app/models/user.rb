@@ -17,10 +17,11 @@ class User < ActiveRecord::Base
     # Code goes here to recommend this users a new untried beer
   end
 
+  # Input Array of Fav Id's, No output, Save all flavors
   def collect_user_flavors(flavor_ids)
-    user = User.first
-    flavor_ids = [2, 3, 5, 6, 7]
+    # flavor_ids = [2, 3, 5, 6, 7]
     # Take clicked flavors and create UserFlavor table entries
+    user = self
     flavor_ids.each do |f_id|
       flavor = Flavor.find(f_id)
       UserFlavor.create(flavor: flavor, user: user)
@@ -31,10 +32,6 @@ class User < ActiveRecord::Base
     # Take general data for wheel as well as user data and return for wheel
   end
 
-  def return_sub_types(type)
-    # Take a type from the user and return a
-
-  end
 
   def taged_types_and_rating_them_return(tagged_types)
     # Take the types the user tagged and save them to the DB
