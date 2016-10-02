@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :post] do
     resources :flavors, only: [:new, :create]
-    resources :rating_beer_types, only: [:create, :new] do
+    resources :tried_beer_ratings, only: [:create, :new] do
       resources :beer_types, only: [:show]
     end
   end
