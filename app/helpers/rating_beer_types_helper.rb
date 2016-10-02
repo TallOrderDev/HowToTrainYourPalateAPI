@@ -1,0 +1,2 @@
+module RatingBeerTypesHelper
+end

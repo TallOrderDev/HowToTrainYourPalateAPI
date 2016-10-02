@@ -5,4 +5,13 @@ class FlavorsController < ApplicationController
    render json: @flavors
   end
 
+  def new
+  end
+
+  def create
+
+  end
+
+
+
 end

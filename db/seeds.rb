@@ -394,6 +394,7 @@ def create_vet_fake_user
   user.skip_confirmation!
   user.save
   create_user_flavors(user)
+
 end
 
 def create_users
