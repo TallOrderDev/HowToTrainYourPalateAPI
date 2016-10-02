@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :tried_beer_types
-  has_many :beer_types, through: :tried_beer_types
+  has_many :tried_beer_ratings
+  has_many :beer_types, through: :tried_beer_ratings, source: :beer_types
   has_many :user_flavors
   has_many :flavors, through: :user_flavors
   # Include default devise modules.
@@ -19,8 +19,6 @@ class User < ActiveRecord::Base
 
   # Input Array of Fav Id's, No output, Save all flavors
   def collect_user_flavors(flavor_ids)
-    # flavor_ids = [2, 3, 5, 6, 7]
-    # Take clicked flavors and create UserFlavor table entries
     user = self
     flavor_ids.each do |f_id|
       flavor = Flavor.find(f_id)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161001004851) do
+ActiveRecord::Schema.define(version: 20161002013106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,13 +20,6 @@ ActiveRecord::Schema.define(version: 20161001004851) do
     t.integer  "flavor_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-  end
-
-  create_table "beer_tagged_types", force: :cascade do |t|
-    t.integer  "tried_beer_type_id"
-    t.integer  "beer_type_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
   end
 
   create_table "beer_type_to_subtypes", force: :cascade do |t|
@@ -52,12 +45,19 @@ ActiveRecord::Schema.define(version: 20161001004851) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "tried_beer_types", force: :cascade do |t|
+  create_table "rating_beer_types", force: :cascade do |t|
     t.integer  "beer_type_id"
+    t.integer  "tried_beer_rating_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "tried_beer_ratings", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "rating"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "user_flavors", force: :cascade do |t|

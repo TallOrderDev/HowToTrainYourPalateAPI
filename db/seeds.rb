@@ -123,8 +123,6 @@ def create_beer_type_to_subtype
   BeerTypeToSubtype.create(beer_type_id: 11, beer_subtype_id: 46)
   BeerTypeToSubtype.create(beer_type_id: 11, beer_subtype_id: 47)
   BeerTypeToSubtype.create(beer_type_id: 11, beer_subtype_id: 48)
-
-
 end
 
 def create_flavors
@@ -357,25 +355,56 @@ def create_beer_flavors
   BeerFlavor.create(beer_type_id: 47, flavor_id: 2)
   BeerFlavor.create(beer_type_id: 47, flavor_id: 1)
   BeerFlavor.create(beer_type_id: 47, flavor_id: 5)
-
 end
 
-def create_user_flavors
-  UserFlavor.create(user_id: 1, flavor_id: 1)
-  UserFlavor.create(user_id: 1, flavor_id: 2)
-  UserFlavor.create(user_id: 1, flavor_id: 3)
-  UserFlavor.create(user_id: 1, flavor_id: 5)
+def create_user_flavors(user)
+  UserFlavor.create(user: user, flavor_id: 1)
+  UserFlavor.create(user: user, flavor_id: 2)
+  UserFlavor.create(user: user, flavor_id: 3)
+  UserFlavor.create(user: user, flavor_id: 5)
 end
 
-def create_fake_user
+def add_user_ratings(user, ratings)
+  ratings.each do |rating|
+    user_rating = TriedBeerRating.create(user: user, comment: rating[1], rating: rating[2])
+      rating[0].each do |type_id|
+        RatingBeerType.create(beer_type_id: type_id, tried_beer_rating: user_rating)
+      end
+  end
+end
+
+def create_new_fake_user
   user = User.new(email: "a@a.com", password: "74107410", password_confirmation: "74107410")
   user.skip_confirmation!
   user.save
+  create_user_flavors(user)
+end
+
+def create_kinda_new_fake_user
+  user = User.new(email: "b@b.com", password: "74107410", password_confirmation: "74107410")
+  user.skip_confirmation!
+  user.save
+  create_user_flavors(user)
+  ratings = [[[1], "comment", 1], [[2], "comment", 2], [[3,4], "comment", 3]]
+  add_user_ratings(user, ratings)
+end
+
+def create_vet_fake_user
+  user = User.new(email: "c@c.com", password: "74107410", password_confirmation: "74107410")
+  user.skip_confirmation!
+  user.save
+  create_user_flavors(user)
+end
+
+def create_users
+  create_new_fake_user
+  create_kinda_new_fake_user
+  create_vet_fake_user
 end
 
 create_beer_types
 create_beer_type_to_subtype
 create_flavors
 create_beer_flavors
-create_fake_user
-create_user_flavors
+create_users
+
