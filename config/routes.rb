@@ -10,6 +10,16 @@ Rails.application.routes.draw do
   # Above is what I gathered from Danny
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :beer_types, only: [:show]
+
   resources :flavors, only: [:index]
+
+  resources :users, only: [:show, :post] do
+    resources :flavors, only: [:new, :create]
+    resources :rating_beer_types, only: [:create, :new] do
+      resources :beer_types, only: [:show]
+    end
+  end
+
+  get 'users/:user_id/beer_types/rec_like', :to => 'beer_types#rec_like'
+  get 'users/:user_id/beer_types/rec_new', :to => 'beer_types#rec_new'
 end
