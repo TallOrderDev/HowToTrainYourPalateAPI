@@ -1,5 +1,10 @@
 class FlavorsController < ApplicationController
 
+def show
+  cats = "cats"
+  render json: cats
+end
+
   def new
     @flavors = Flavor.all
     render json: @flavors
