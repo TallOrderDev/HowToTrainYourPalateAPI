@@ -11,9 +11,9 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 resources :flavors, only: [:index, :show]
+resources :users, only: [:show, :post] do
 
-  authenticated :user do
-    resources :users, only: [:show, :post] do
+    authenticated :user do
       resources :flavors, only: [:new, :create]
       resources :tried_beer_ratings, only: [:create, :new] do
         resources :beer_types, only: [:show]

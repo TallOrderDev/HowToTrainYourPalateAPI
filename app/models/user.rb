@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
           :omniauthable
   include DeviseTokenAuth::Concerns::User
 
+  # Done-ish
   def recommend_liked_beer
     ratings_count = self.tried_beer_ratings.count
     if ratings_count > 10
@@ -20,8 +21,17 @@ class User < ActiveRecord::Base
     end
   end
 
+  # Not Really Done
   def recommend_new_beer
-    # Code goes here to recommend this users a new untried beer
+    ratings_count = self.tried_beer_ratings.count
+    if ratings_count > 10
+      return advanced # Advanced, all options are open
+    elsif ratings_count  > 5
+      return intermediate # Int User, user still gets main topics and maybe Flavors are used
+    else
+      return beginner
+    end
+
   end
 
   # Input Array of Fav Id's, No output, Save all flavors
