@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 # Above was the standard Devise-provided code. Below is what I gathered from danny
    scope :v1 do
     mount_devise_token_auth_for 'User', at: 'auth', :defaults => { :format => 'json' }
-    match '/auth/register' => 'registrations#create', :via => 'post', :defaults => { :format => 'json' }
+    # match '/auth/register' => 'registrations#create', :via => 'post', :defaults => { :format => 'json' }
   end
 
   # Above is what I gathered from Danny
