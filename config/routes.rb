@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 resources :flavors, only: [:index, :show]
 resources :users, only: [:post]
 
-    authenticate :user do
+    authenticated :user do
       resources :users, only: [:show] do
         resources :flavors, only: [:new, :create]
         resources :tried_beer_ratings, only: [:create, :new] do
