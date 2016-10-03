@@ -1,6 +1,6 @@
 class FlavorsController < ApplicationController
 
-def show
+def index
   cats = "cats"
   render json: cats
 end
