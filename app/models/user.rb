@@ -1,3 +1,5 @@
+
+
 class User < ActiveRecord::Base
   has_many :tried_beer_ratings
   has_many :beer_types, through: :tried_beer_ratings, source: :beer_types
