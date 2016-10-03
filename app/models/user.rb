@@ -29,8 +29,8 @@ class User < ActiveRecord::Base
     # Take general data for wheel as well as user data and return for wheel
   end
 
-
-  def taged_types_and_rating_them_return(tagged_type_ids, rating, comment)
+  # Takes user rating saves them and the types associated for given user
+  def taged_types_and_rating_add(tagged_type_ids, rating, comment)
     had_a_new_beer(tagged_type_ids, rating, comment)
     return BeerType.descriptions_for_drank_type(tagged_type_ids)
   end
