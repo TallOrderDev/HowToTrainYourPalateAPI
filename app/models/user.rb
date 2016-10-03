@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
   has_many :flavors, through: :user_flavors
   # Include default devise modules.
   devise :database_authenticatable, :registerable,
-          :recoverable, :rememberable, :trackable, :validatable,
-          :confirmable, :omniauthable
+          :rememberable, :trackable, :validatable,
+          :omniauthable
   include DeviseTokenAuth::Concerns::User
 
   def recommend_liked_beer
