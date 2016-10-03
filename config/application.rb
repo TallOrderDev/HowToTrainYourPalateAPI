@@ -14,7 +14,7 @@ module HopscotchApi
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
-        resource '*', :headers => ["access-token", "client", "expiry"], :methods => :any
+        resource '*', :headers => :any, :methods => :any
       end
     end
   end
