@@ -391,7 +391,8 @@ def create_vet_fake_user
   user = User.new(email: "c@c.com", password: "74107410", password_confirmation: "74107410")
   user.save
   create_user_flavors(user)
-
+  ratings = [[[1], "comment", 1], [[2], "comment", 2], [[3,4], "comment", 3],[[1], "comment", 1], [[2], "comment", 2], [[3,20], "comment", 3],[[1], "comment", 1], [[2], "comment", 2], [[3,4], "comment", 3]]
+  add_user_ratings(user, ratings)
 end
 
 def create_users

@@ -12,11 +12,11 @@ class User < ActiveRecord::Base
   def recommend_liked_beer
     ratings_count = self.tried_beer_ratings.count
     if ratings_count > 10
-      # Advanced, all options are open
+      return advanced # Advanced, all options are open
     elsif ratings_count  > 5
-      # Int User, user still gets main topics and maybe Flavors are used
+      return intermediate # Int User, user still gets main topics and maybe Flavors are used
     else
-      return beginers_liked_rec
+      return beginner
     end
   end
 
@@ -43,18 +43,78 @@ class User < ActiveRecord::Base
     return BeerType.descriptions_for_drank_type(tagged_type_ids)
   end
 
+  # PRIVATE AREA KEEP OUT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   private
+  def beginner
+    remove_subtypes(all_types_for_selected_flavors)
+  end
 
+  def intermediate
+    flavors_rec = remove_subtypes(remove_down_from_flavor_types)
+    votes_rec = remove_subtypes(remove_down_from_up_votes)
+    type_rec = (flavors_rec + votes_rec).uniq
+  end
+
+  def advanced
+    flavors_rec = remove_down_from_flavor_types
+    votes_rec = remove_down_from_up_votes
+    type_rec = (flavors_rec + votes_rec).uniq
+  end
+
+  # done
+  def remove_subtypes(types)
+    types.delete_if {|type| type.main_type == 0}
+  end
+
+  def remove_down_from_flavor_types
+    down_voted = remove_up_from_down_votes
+    rec_types = all_types_for_selected_flavors - down_voted
+  end
+
+  # done
+  def all_up_vote_types
+    self.tried_beer_ratings.where("rating > 2").map{|rating|rating.beer_types }.flatten
+  end
+
+  # done
+  def all_down_vote_types
+    self.tried_beer_ratings.where("rating < 2").map{|rating|rating.beer_types }.flatten
+  end
+
+  # done
+  def remove_down_from_up_votes
+    keep_types = all_up_vote_types
+    all_down_vote_types.each do |type|
+      ind = keep_types.index(num)
+      if ind
+        keep_types.delete_at(ind)
+      end
+    end
+    return keep_types
+  end
+
+  # done
+  def remove_up_from_down_votes
+    keep_types = all_down_vote_types
+    all_up_vote_types.each do |type|
+      ind = keep_types.index(num)
+      if ind
+        keep_types.delete_at(ind)
+      end
+    end
+    return keep_types
+  end
+
+  # done
+  def all_types_for_selected_flavors
+    self.flavors.map{|flavor| flavor.beer_types}.flatten.uniq
+  end
+
+  # done
   def had_a_new_beer(tagged_type_ids, rating, comment)
     rating = TriedBeerRating.create(rating: rating, comment: comment, user: self)
     tagged_type_ids.each do |type_id|
       RatingBeerType.create(beer_type_id: type_id, tried_beer_rating: rating)
-    end
-  end
-
-  def beginers_liked_rec
-    self.flavors.map{|flavor| flavor.beer_types.where(main_type: 1) }.flatten.uniq.map do |type|
-      [type.id, type.name]
     end
   end
 
