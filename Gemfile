@@ -34,5 +34,3 @@ gem 'coveralls', require: false
 gem 'devise'
 gem 'devise_token_auth'
 gem 'omniauth'
-gem 'rack-cors'
-
