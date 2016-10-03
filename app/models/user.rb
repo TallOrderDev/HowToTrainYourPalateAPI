@@ -9,6 +9,12 @@ class User < ActiveRecord::Base
           :omniauthable
   include DeviseTokenAuth::Concerns::User
 
+  def fetch_auth_token!
+  self.auth_token = SecureRandom.base64(50)
+  self.save!
+  self.auth_token
+end
+
   # Done-ish
   def recommend_liked_beer
     ratings_count = self.tried_beer_ratings.count
