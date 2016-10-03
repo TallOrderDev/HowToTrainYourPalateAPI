@@ -19,10 +19,9 @@ class User < ActiveRecord::Base
 
   # Input Array of Fav Id's, No output, Save all flavors
   def collect_user_flavors(flavor_ids)
-    user = self
     flavor_ids.each do |f_id|
       flavor = Flavor.find(f_id)
-      UserFlavor.create(flavor: flavor, user: user)
+      UserFlavor.create(flavor: flavor, user: self)
     end
   end
 
