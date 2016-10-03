@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 resources :flavors, only: [:index, :show]
 resources :users, only: [:post]
 
-    authenticated :user do
+
       resources :users, only: [:show] do
         resources :flavors, only: [:new, :create]
         resources :tried_beer_ratings, only: [:create, :new] do
@@ -21,7 +21,6 @@ resources :users, only: [:post]
         end
       end
 
-    end
     get 'users/:user_id/beer_types/:beer_type_id/tried_beer_ratings/new', :to => 'beer_types#new'
     get 'users/:user_id/beer_types/rec_new', :to => 'beer_types#rec_new'
     get 'users/:user_id/beer_types/rec_like', :to => 'beer_types#rec_like'
