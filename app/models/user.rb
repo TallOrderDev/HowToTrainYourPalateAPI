@@ -10,7 +10,14 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
 
   def recommend_liked_beer
-    #This will recommend a type the user enjoys.
+    ratings_count = self.tried_beer_ratings.count
+    if ratings_count > 10
+      # Advanced, all options are open
+    elsif ratings_count  > 5
+      # Int User, user still gets main topics and maybe Flavors are used
+    else
+      return beginers_liked_rec
+    end
   end
 
   def recommend_new_beer
@@ -25,6 +32,7 @@ class User < ActiveRecord::Base
     end
   end
 
+  # Joey is working on the data for what to send here.
   def wheel_data_user_data
     # Take general data for wheel as well as user data and return for wheel
   end
@@ -41,6 +49,12 @@ class User < ActiveRecord::Base
     rating = TriedBeerRating.create(rating: rating, comment: comment, user: self)
     tagged_type_ids.each do |type_id|
       RatingBeerType.create(beer_type_id: type_id, tried_beer_rating: rating)
+    end
+  end
+
+  def beginers_liked_rec
+    self.flavors.map{|flavor| flavor.beer_types.where(main_type: 1) }.flatten.uniq.map do |type|
+      [type.id, type.name]
     end
   end
 

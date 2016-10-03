@@ -1,12 +1,12 @@
 class FlavorsController < ApplicationController
 
-def index
-  cats = "cats"
-  render json: cats
-end
+  def index
+    cats = "cats"
+    render json: cats
+  end
 
   def new
-    @flavors = Flavor.all
+    @flavors = Flavor.all.map{|flavor| [flavor.id, flavor.flavor] }
     render json: @flavors
   end
 
