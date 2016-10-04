@@ -1,5 +1,6 @@
 class TriedBeerRatingsController < ApplicationController
 
+  before_action :set_user
   def new
     # Mock
     params = 1

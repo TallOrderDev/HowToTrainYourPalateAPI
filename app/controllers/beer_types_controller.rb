@@ -2,6 +2,7 @@ class BeerTypesController < ApplicationController
   # The below method will go to the Beer Info Page
   # John's method will aid in finding the proper BeerType
   # based on the user's input from the previous page.
+  before_action :set_user
   def show
     @beertype = BeerType.first
     render json: @beertype
