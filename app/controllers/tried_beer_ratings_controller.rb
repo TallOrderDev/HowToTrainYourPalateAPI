@@ -12,6 +12,8 @@ class TriedBeerRatingsController < ApplicationController
   def create
     p"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
     p params
+
+    # tagIds, comment, rating
     # @user.taged_types_and_rating_add(params[:ids], params[:rating], params[:comment])
   end
 
