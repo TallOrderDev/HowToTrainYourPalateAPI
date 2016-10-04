@@ -15,13 +15,14 @@ Rails.application.routes.draw do
 
 
   resources :users, only: [:show] do
+    resources :beer_types, only: [:show] do
+      resources :tried_beer_ratings, only: [:new]
+    end
     resources :flavors, only: [:new, :create]
-    resources :tried_beer_ratings, only: [:create, :new] do
-      resources :beer_types, only: [:show]
+    resources :tried_beer_ratings, only: [:create] do
+      # resources :beer_types, only: [:show]
     end
   end
-
-  get 'users/:user_id/beer_types/:beer_type_id/tried_beer_ratings/new', :to => 'beer_types#new'
   get 'users/:user_id/beer_types/rec_new', :to => 'beer_types#rec_new'
   get 'users/:user_id/beer_types/rec_like', :to => 'beer_types#rec_like'
 end
