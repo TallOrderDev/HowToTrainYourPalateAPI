@@ -8,7 +8,7 @@ class FlavorsController < ApplicationController
   def new
     puts "entering the new route"
     puts "UID: #{request.headers['uid']}"
-    user = User.find(request.headers['uid'])
+    user = User.find_by(uid: request.headers['uid'])
     puts "hold onto your butts..."
     if user.valid_token?(request.headers['access-token'], request.headers['client'])
       @flavors = Flavor.all.map{|flavor| [flavor.id, flavor.flavor] }
