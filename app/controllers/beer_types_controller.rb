@@ -2,6 +2,12 @@ class BeerTypesController < ApplicationController
   # The below method will go to the Beer Info Page
   # John's method will aid in finding the proper BeerType
   # based on the user's input from the previous page.
+
+  def new
+    @subtypes = BeerType.find(params[:beer_type_id]).beer_subtypes
+    render json: @subtypes
+  end
+
   def show
     @beertype = BeerType.first
     render json: @beertype
