@@ -1,5 +1,7 @@
 class FlavorsController < ApplicationController
 
+  before_action :set_user
+
   def index
     cats = "cats"
     render json: cats

@@ -3,6 +3,10 @@ class BeerTypesController < ApplicationController
   # John's method will aid in finding the proper BeerType
   # based on the user's input from the previous page.
 
+
+
+  before_action :set_user
+
   def new
     @subtypes = BeerType.find(params[:beer_type_id]).beer_subtypes
     render json: @subtypes
