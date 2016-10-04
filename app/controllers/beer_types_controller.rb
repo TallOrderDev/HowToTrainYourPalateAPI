@@ -8,7 +8,6 @@ class BeerTypesController < ApplicationController
   before_action :set_user
 
   def new
-    p "92837492387492834p293857203984752098457230985720938475230985672340o587236450823465"
     @subtypes = BeerType.find(params[:beer_type_id]).beer_subtypes
     render json: @subtypes
   end
