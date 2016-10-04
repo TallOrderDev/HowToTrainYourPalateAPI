@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resources :users, only: [:post]
 
 
+  get 'users/:user_id/beer_types/rec_new', :to => 'beer_types#rec_new'
+  get 'users/:user_id/beer_types/rec_like', :to => 'beer_types#rec_like'
   resources :users, only: [:show] do
     resources :beer_types, only: [:show] do
       resources :tried_beer_ratings, only: [:new]
@@ -23,6 +25,4 @@ Rails.application.routes.draw do
       # resources :beer_types, only: [:show]
     end
   end
-  get 'users/:user_id/beer_types/rec_new', :to => 'beer_types#rec_new'
-  get 'users/:user_id/beer_types/rec_like', :to => 'beer_types#rec_like'
 end
