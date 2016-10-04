@@ -1,21 +1,15 @@
 class FlavorsController < ApplicationController
 
+  before_action :set_user
+
   def index
     cats = "cats"
     render json: cats
   end
 
   def new
-    puts "entering the new route"
-    puts "UID: #{request.headers['uid']}"
-    user = User.find_by(uid: request.headers['uid'])
-    puts "hold onto your butts..."
-    if user.valid_token?(request.headers['access-token'], request.headers['client'])
-      @flavors = Flavor.all.map{|flavor| [flavor.id, flavor.flavor] }
-      render json: @flavors
-    else
-      render nothing: true, status: 401
-    end
+    @flavors = Flavor.all.map{|flavor| [flavor.id, flavor.flavor] }
+    render json: @flavors
   end
 
   def create
