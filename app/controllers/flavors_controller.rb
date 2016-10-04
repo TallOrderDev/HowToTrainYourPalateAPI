@@ -6,8 +6,14 @@ class FlavorsController < ApplicationController
   end
 
   def new
-    @flavors = Flavor.all.map{|flavor| [flavor.id, flavor.flavor] }
-    render json: @flavors
+    user = User.find(request.headers['uid'])
+    puts "hold onto your butts..."
+    if user.valid_token?(request.headers['access-token'], request.headers['client'])
+      @flavors = Flavor.all.map{|flavor| [flavor.id, flavor.flavor] }
+      render json: @flavors
+    else
+      render nothing: true, status: 401
+    end
   end
 
   def create
