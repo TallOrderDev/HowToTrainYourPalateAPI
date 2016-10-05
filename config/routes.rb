@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     end
     resources :flavors, only: [:new, :create]
     resources :tried_beer_ratings, only: [:create] do
-      # resources :beer_types, only: [:show]
+      resources :beer_types, only: [:show]
     end
   end
 end
