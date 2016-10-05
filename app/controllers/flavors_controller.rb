@@ -1,7 +1,7 @@
 class FlavorsController < ApplicationController
 
   before_action :set_user
-
+  skip_before_action :set_user, :only => [:index]
   def index
     cats = "cats"
     render json: cats
