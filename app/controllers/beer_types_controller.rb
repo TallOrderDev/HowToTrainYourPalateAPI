@@ -8,7 +8,7 @@ class BeerTypesController < ApplicationController
   before_action :set_user
 
   def index
-    types = @user.tried_beer_ratings.last.beer_types.map do |type|
+    types = User.find(3).tried_beer_ratings.last.beer_types.map do |type|
       {name: type.name, description: type.beg_description}
     end
     render json: types
