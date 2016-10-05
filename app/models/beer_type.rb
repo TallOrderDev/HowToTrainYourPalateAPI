@@ -13,7 +13,7 @@ class BeerType < ApplicationRecord
   def return_sub_types
     main_type = type_status
     if main_type
-      return self.beer_subtypes.map{|type| [type.id, type.name]}
+      return self.beer_subtypes.map{|type| {id: type.id, name: type.name}}
     else
       return types_for_subtype
     end

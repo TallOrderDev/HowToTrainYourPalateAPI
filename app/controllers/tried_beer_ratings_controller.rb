@@ -4,8 +4,8 @@ class TriedBeerRatingsController < ApplicationController
 
   def new
     beer = BeerType.find(params[:beer_type_id].to_i)
-    return_types = [[beer.id, beer.name]]
-    return_types = return_types + beer.return_sub_types
+    return_types = {:mainType => {id: beer.id, name: beer.name}}
+    return_types[:associatedTypes] = beer.return_sub_types
     render json: return_types
   end
 
