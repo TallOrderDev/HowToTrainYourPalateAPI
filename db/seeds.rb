@@ -6,7 +6,7 @@ def create_beer_types
   BeerType.create(name: "Pale Ales", main_type: 1, beg_description: "Pale ales, and their hoppier cousins India Pale Ales, run the gamut from light and refreshing to heavy and nearly unpalatable.")
   BeerType.create(name: "Belgians", main_type: 1, beg_description: "Belgian beers can be dark or light, but are almost always rich and complex. They get their distinct flavors mainly from Belgian yeast.")
   BeerType.create(name: "Sours", main_type: 1, beg_description: "With a yogurt-like tartness, sours can be soured many ways, from introducing certain yeast strains to leaving the beer exposed and letting nature have at it.")
-  BeerType.create(name: "Wheats", main_type: 1, beg_description: "Wheat beers can be light- or medium-bodied and are very versatile when it comes to adding other flavors or ingredients.")
+  BeerType.create(name: "Wheats", main_type: 1, beg_description: "Wheat beers can be light or medium-bodied and are very versatile when it comes to adding other flavors or ingredients.")
   BeerType.create(name: "Bocks", main_type: 1, beg_description: "Bocks are brown to deep black with a medium-heavy body and a flavorful maltiness, without much hop character.")
   BeerType.create(name: "Pale Lagers", main_type: 1, beg_description: "The pale lager is a relatively new style of beer. Light in color and body, pale lagers are slightly hoppy and well carbonated.")
   BeerType.create(name: "Dark Lagers", main_type: 1, beg_description: "Darker than pale lagers, dark lagers are usually only lightly hopped and, despite the color, not very heavy.")
