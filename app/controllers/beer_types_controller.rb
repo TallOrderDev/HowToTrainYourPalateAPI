@@ -8,6 +8,7 @@ class BeerTypesController < ApplicationController
   before_action :set_user
 
   def index
+    sleep 1.5
     types = @user.tried_beer_ratings.last.beer_types.map do |type|
       {name: type.name, description: type.beg_description}
     end
