@@ -1,12 +1,7 @@
 class BeerTypesController < ApplicationController
-  # The below method will go to the Beer Info Page
-  # John's method will aid in finding the proper BeerType
-  # based on the user's input from the previous page.
-
-
-
   before_action :set_user
 
+  # Shows the user the data from the last ratings about beer_types
   def index
     sleep 1.5
     types = @user.tried_beer_ratings.last.beer_types.map do |type|
@@ -15,24 +10,27 @@ class BeerTypesController < ApplicationController
     render json: types
   end
 
-  def new
-    @subtypes = BeerType.find(params[:beer_type_id]).beer_subtypes
-    render json: @subtypes
-  end
-
-  def show
-    @beertype = BeerType.first
-    render json: @beertype
-  end
-
+  # Recommend to the user the type of beer they may like.
   def rec_like
-    @beer_tpyes_to_try = BeerType.limit(6).map{|type| [type.id, type.name]}
-    render json: @beer_tpyes_to_try
+    @beer_types_to_try = @user.recommend_liked_beer.map{|type| [type.id, type.name]}
+    render json: @beer_types_to_try
   end
 
+  # Recommend a Type of beer the user has never tried.
   def rec_new
-    @beer_tpyes_to_try = BeerType.limit(6).map{|type| [type.id, type.name]}
-    render json: @beer_tpyes_to_try
+    @beer_types_to_try = BeerType.limit(6).map{|type| [type.id, type.name]}
+    render json: @beer_types_to_try
   end
 
+  # Deprecated Removed from routes
+  # def new
+  #   @subtypes = BeerType.find(params[:beer_type_id]).beer_subtypes
+  #   render json: @subtypes
+  # end
+
+  # Deprecated Removed from routes
+  # def show
+  #   @beertype = BeerType.first
+  #   render json: @beertype
+  # end
 end

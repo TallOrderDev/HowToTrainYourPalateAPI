@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get 'users/:user_id/beer_types/rec_new', :to => 'beer_types#rec_new'
   get 'users/:user_id/beer_types/rec_like', :to => 'beer_types#rec_like'
   resources :users, only: [:show] do
-    resources :beer_types, only: [:show] do
+    resources :beer_types, only: [] do
       resources :tried_beer_ratings, only: [:new]
     end
     resources :flavors, only: [:new, :create]

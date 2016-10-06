@@ -50,7 +50,6 @@ class User < ActiveRecord::Base
   # Takes user rating saves them and the types associated for given user
   def taged_types_and_rating_add(tagged_type_ids, rating, comment)
     had_a_new_beer(tagged_type_ids, rating, comment)
-    return BeerType.descriptions_for_drank_type(tagged_type_ids)
   end
 
   # PRIVATE AREA KEEP OUT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -88,14 +87,15 @@ class User < ActiveRecord::Base
 
   # done
   def all_down_vote_types
-    self.tried_beer_ratings.where("rating < 2").map{|rating|rating.beer_types }.flatten
+    down_voted = self.tried_beer_ratings.where("rating < 2").map{|rating|rating.beer_types }.flatten
+    dont_like = down_voted - BeerType.all
   end
 
   # done
   def remove_down_from_up_votes
     keep_types = all_up_vote_types
     all_down_vote_types.each do |type|
-      ind = keep_types.index(num)
+      ind = keep_types.index(type)
       if ind
         keep_types.delete_at(ind)
       end
@@ -107,10 +107,11 @@ class User < ActiveRecord::Base
   def remove_up_from_down_votes
     keep_types = all_down_vote_types
     all_up_vote_types.each do |type|
-      ind = keep_types.index(num)
+      ind = keep_types.index(type)
       if ind
         keep_types.delete_at(ind)
       end
+      ind = false
     end
     return keep_types
   end

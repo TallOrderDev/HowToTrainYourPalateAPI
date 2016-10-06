@@ -9,7 +9,7 @@ class BeerType < ApplicationRecord
   has_many :beer_subtypes, through: :beer_type_to_subtypes
   has_many :beer_types, through: :beer_type_links
 
-
+  # Called on the ratings new page
   def return_sub_types
     main_type = type_status
     if main_type
@@ -31,11 +31,11 @@ private
 
   def types_for_subtype
     types = []
-      self.beer_types.each do |mt|
-        types << [mt.id, mt.name]
-        mt.sub_types.each do |st|
-          types << [st.id, st.name]
-        end
+    self.beer_types.each do |mt|
+      types << [mt.id, mt.name]
+      mt.sub_types.each do |st|
+        types << [st.id, st.name]
+      end
     end
     return types
   end
