@@ -32,9 +32,9 @@ private
   def types_for_subtype
     types = []
     self.beer_types.each do |mt|
-      types << [mt.id, mt.name]
+      types << {id: mt.id, name: mt.name}
       mt.beer_subtypes.each do |st|
-        types << [st.id, st.name]
+        types << {id: st.id, name: st.name}
       end
     end
     return types.uniq
