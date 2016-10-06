@@ -3,7 +3,6 @@ class BeerTypesController < ApplicationController
 
   # Shows the user the data from the last ratings about beer_types
   def index
-    sleep 1.5
     types = @user.tried_beer_ratings.last.beer_types.map do |type|
       {name: type.name, description: type.beg_description}
     end
