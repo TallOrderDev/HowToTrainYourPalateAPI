@@ -125,15 +125,15 @@ def create_flavors
   #3
   Flavor.create(flavor: "Sweet")
   #4
-  Flavor.create(flavor: "Roasty")
+  Flavor.create(flavor: "Roasted")
   #5
-  Flavor.create(flavor: "Smoky")
+  Flavor.create(flavor: "Smokey")
   #6
   Flavor.create(flavor: "Fruity")
   #7
   Flavor.create(flavor: "Spice")
   #8
-  Flavor.create(flavor: "Tarty")
+  Flavor.create(flavor: "Tart")
 end
 
 def create_beer_flavors

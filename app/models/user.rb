@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
 
   # Joey is working on the data for what to send here.
   def wheel_data_user_data
-    # Take general data for wheel as well as user data and return for wheel
+    return_beers_voted_on
   end
 
   # Takes user rating saves them and the types associated for given user
@@ -70,6 +70,26 @@ class User < ActiveRecord::Base
     type_rec = (flavors_rec + votes_rec).uniq
   end
 
+  def return_beers_voted_on
+    beer_types = BeerType.all
+    down_voted = return_count(remove_up_from_down_votes, beer_types)
+    up_voted = return_count(remove_down_from_up_votes, beer_types)
+    returned_types = {upVoted: up_voted, downVoted: down_voted}
+    return returned_types
+  end
+
+  # Take main array and returns how many times it shows in smaller array, in hash
+  def return_count(votes, all_beers)
+    final_array = all_beers.map do |type|
+      count = votes.count(type)
+      if count >= 1
+        {name: type.name, count: count}
+      else
+        nil
+        end
+    end
+      final_array.compact
+  end
   # done
   def remove_subtypes(types)
     types.delete_if {|type| type.main_type == 0}
@@ -91,7 +111,7 @@ class User < ActiveRecord::Base
     dont_like = down_voted - BeerType.all
   end
 
-  # done
+  # done Gives up - down = total positive up votes.
   def remove_down_from_up_votes
     keep_types = all_up_vote_types
     all_down_vote_types.each do |type|
@@ -103,7 +123,7 @@ class User < ActiveRecord::Base
     return keep_types
   end
 
-  # done
+  # done Gives down - up = total positive down votes
   def remove_up_from_down_votes
     keep_types = all_down_vote_types
     all_up_vote_types.each do |type|
