@@ -107,8 +107,7 @@ class User < ActiveRecord::Base
 
   # done
   def all_down_vote_types
-    down_voted = self.tried_beer_ratings.where("rating < 2").map{|rating|rating.beer_types }.flatten
-    dont_like = down_voted - BeerType.all
+    self.tried_beer_ratings.where("rating < 2").map{|rating|rating.beer_types }.flatten
   end
 
   # done Gives up - down = total positive up votes.
