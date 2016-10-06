@@ -33,11 +33,11 @@ private
     types = []
     self.beer_types.each do |mt|
       types << [mt.id, mt.name]
-      mt.sub_types.each do |st|
+      mt.beer_subtypes.each do |st|
         types << [st.id, st.name]
       end
     end
-    return types
+    return types.uniq
   end
 
   def type_status
