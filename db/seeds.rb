@@ -366,22 +366,19 @@ def add_user_ratings(user, ratings)
 end
 
 def create_new_fake_user
-  user = User.new(email: "a@a.com", password: "74107410", password_confirmation: "74107410")
-  user.save
+  user = User.create!(email: "a@a.com", password: "74107410", password_confirmation: "74107410")
   create_user_flavors(user)
 end
 
 def create_kinda_new_fake_user
-  user = User.new(email: "b@b.com", password: "74107410", password_confirmation: "74107410")
-  user.save
+  user = User.create!(email: "b@b.com", password: "74107410", password_confirmation: "74107410")
   create_user_flavors(user)
   ratings = [[[1], "comment", 1], [[2], "comment", 2], [[3,4], "comment", 3]]
   add_user_ratings(user, ratings)
 end
 
 def create_vet_fake_user
-  user = User.new(email: "c@c.com", password: "74107410", password_confirmation: "74107410")
-  user.save
+  user = User.create!(email: "c@c.com", password: "74107410", password_confirmation: "74107410")
   create_user_flavors(user)
   ratings = [[[1], "comment", 1], [[2], "comment", 2], [[3,4], "comment", 3],[[1], "comment", 1], [[2], "comment", 2], [[3,20], "comment", 3],[[1], "comment", 1], [[2], "comment", 2], [[3,4], "comment", 3]]
   add_user_ratings(user, ratings)
