@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :flavors, only: [:index, :show]
   resources :users, only: [:post]
-
+  resources :current, only: [:show]
+  # get 'current', :to => 'current#check_current'
 
   get 'users/:user_id/beer_types/rec_new', :to => 'beer_types#rec_new'
   get 'users/:user_id/beer_types/rec_like', :to => 'beer_types#rec_like'
