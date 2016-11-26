@@ -6,6 +6,6 @@ class CurrentController < ApplicationController
 		else 
 			version_control = false
 		end
-    	render json: version_control
+    	render json: true
 	end
 end
